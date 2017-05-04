@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <groupId>com.github.raghubs81</groupId>
+   <artifactId>jreportng</artifactId>
+   <version>1.1-SNAPSHOT</version>
+   <packaging>jar</packaging>
+
+   <name>JReportNG</name>
+   <description>A utility to generate HTML log structured like Javadocs for each JUnit4 test class</description>
+   <url>https://github.com/raghubs81/jreportng</url>
+
+   <licenses>
+      <license>
+         <name>The Apache License, Version 2.0</name>
+         <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      </license>
+   </licenses>
+
+   <developers>
+      <developer>
+         <name>Raghunandan Seshadri</name>
+         <email>raghubs81@gmail.com</email>
+         <organization>Maga</organization>
+         <organizationUrl>https://github.com/raghubs81</organizationUrl>
+      </developer>
+   </developers>
+
+   <scm>
+      <connection>scm:git:git://github.com/raghubs81/jreportng.git</connection>
+      <developerConnection>scm:git:ssh://github.com:raghubs81/jreportng.git</developerConnection>
+      <url>https://github.com/raghubs81/jreportng/tree/master</url>
+   </scm>
+
+   <distributionManagement>
+      <snapshotRepository>
+         <id>ossrh</id>
+         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      </snapshotRepository>
+      <repository>
+         <id>ossrh</id>
+         <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      </repository>
+   </distributionManagement>
+
+   <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+   </properties>
+
+   <dependencies>
+
+      <dependency>
+         <groupId>org.testng</groupId>
+         <artifactId>testng</artifactId>
+         <version>6.11</version>
+         <scope>compile</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>org.apache.maven.surefire</groupId>
+         <artifactId>surefire-junit47</artifactId>
+         <version>2.19.1</version>
+         <scope>compile</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>commons-lang</groupId>
+         <artifactId>commons-lang</artifactId>
+         <version>20030203.000129</version>
+      </dependency>
+
+   </dependencies>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.19.1</version>
+
+            <configuration>
+
+               <parallel>classes</parallel>
+               <threadCount>5</threadCount>
+
+               <systemPropertyVariables>
+                  <jreport.org.prefix>com.github.raghubs81</jreport.org.prefix>
+               </systemPropertyVariables>
+
+               <properties>
+                  <property>
+                     <name>listener</name>
+                     <value>com.github.raghubs81.jreportng.TestListener</value>
+                  </property>
+               </properties>
+
+               <suiteXmlFiles>
+                  <suiteXmlFile>src/test/resources/jreportng/Suite.xml</suiteXmlFile>
+               </suiteXmlFiles>
+
+            </configuration>
+         </plugin>
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>2.2.1</version>
+            <executions>
+               <execution>
+                  <id>attach-sources</id>
+                  <goals>
+                     <goal>jar</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>2.9.1</version>
+            <executions>
+               <execution>
+                  <id>attach-javadocs</id>
+                  <goals>
+                     <goal>jar</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.5</version>
+            <executions>
+               <execution>
+                  <id>sign-artifacts</id>
+                  <phase>verify</phase>
+                  <goals>
+                     <goal>sign</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+
+      </plugins>
+   </build>
+
+</project>

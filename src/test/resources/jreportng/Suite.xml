@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="MySuite" parallel="false" preserve-order="true" time-out="5000">
+
+  <test name="MyTest" preserve-order="true">
+    <classes>      
+      <class name="com.github.raghubs81.jreportng.ClassA"/>
+      <class name="com.github.raghubs81.jreportng.ClassB"/>
+      <class name="com.github.raghubs81.jreportng.LogLevel"/>
+    </classes>
+  </test>
+
+</suite>
