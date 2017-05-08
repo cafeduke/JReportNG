@@ -3,14 +3,14 @@
    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
    <modelVersion>4.0.0</modelVersion>
 
-   <groupId>com.github.raghubs81</groupId>
+   <groupId>com.github.cafeduke</groupId>
    <artifactId>jreportng</artifactId>
    <version>1.1-SNAPSHOT</version>
    <packaging>jar</packaging>
 
    <name>JReportNG</name>
    <description>A utility to generate HTML log structured like Javadocs for each JUnit4 test class</description>
-   <url>https://github.com/raghubs81/jreportng</url>
+   <url>https://github.com/cafeduke/jreportng</url>
 
    <licenses>
       <license>
@@ -22,16 +22,16 @@
    <developers>
       <developer>
          <name>Raghunandan Seshadri</name>
-         <email>raghubs81@gmail.com</email>
+         <email>cafeduke@gmail.com</email>
          <organization>Maga</organization>
-         <organizationUrl>https://github.com/raghubs81</organizationUrl>
+         <organizationUrl>https://github.com/cafeduke</organizationUrl>
       </developer>
    </developers>
 
    <scm>
-      <connection>scm:git:git://github.com/raghubs81/jreportng.git</connection>
-      <developerConnection>scm:git:ssh://github.com:raghubs81/jreportng.git</developerConnection>
-      <url>https://github.com/raghubs81/jreportng/tree/master</url>
+      <connection>scm:git:git://github.com/cafeduke/jreportng.git</connection>
+      <developerConnection>scm:git:ssh://github.com:cafeduke/jreportng.git</developerConnection>
+      <url>https://github.com/cafeduke/jreportng/tree/master</url>
    </scm>
 
    <distributionManagement>
@@ -88,13 +88,13 @@
                <threadCount>5</threadCount>
 
                <systemPropertyVariables>
-                  <jreport.org.prefix>com.github.raghubs81</jreport.org.prefix>
+                  <jreport.org.prefix>com.github.cafeduke</jreport.org.prefix>
                </systemPropertyVariables>
 
                <properties>
                   <property>
                      <name>listener</name>
-                     <value>com.github.raghubs81.jreportng.TestListener</value>
+                     <value>com.github.cafeduke.jreportng.TestListener</value>
                   </property>
                </properties>
 
