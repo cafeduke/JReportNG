@@ -4,9 +4,9 @@
 
   <test name="MyTest" preserve-order="true">
     <classes>      
-      <class name="com.github.raghubs81.jreportng.ClassA"/>
-      <class name="com.github.raghubs81.jreportng.ClassB"/>
-      <class name="com.github.raghubs81.jreportng.LogLevel"/>
+      <class name="com.github.cafeduke.jreportng.ClassA"/>
+      <class name="com.github.cafeduke.jreportng.ClassB"/>
+      <class name="com.github.cafeduke.jreportng.LogLevel"/>
     </classes>
   </test>
 
