@@ -10,7 +10,7 @@ import com.github.cafeduke.jreportng.JReportLogger;
 public class ClassB extends AbstractTestCase
 {
    @JReportLogger
-   protected static Logger logger;
+   public static Logger logger;
    
    @BeforeClass
    public static void setup ()

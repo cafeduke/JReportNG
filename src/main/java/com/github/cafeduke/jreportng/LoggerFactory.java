@@ -62,7 +62,7 @@ public class LoggerFactory
       }
       catch (Exception e)
       {
-         throw new IllegalStateException("Exception injecting logger in class " + testClass.getName());
+         throw new IllegalStateException("Exception injecting logger in class " + testClass.getName(), e);
       }
    }   
 }

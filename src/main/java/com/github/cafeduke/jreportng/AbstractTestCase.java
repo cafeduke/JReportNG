@@ -12,7 +12,7 @@ import org.testng.annotations.*;
  *    {
  *        // A static logger object
  *        {@literal @}JReportLogger
- *        protected static Logger logger;
+ *        public static Logger logger;
  *            
  *        Test
  *        public void myTest ()

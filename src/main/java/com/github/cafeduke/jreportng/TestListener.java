@@ -156,7 +156,7 @@ public class TestListener implements ITestListener, ISuiteListener, IExecutionLi
       String prefix = "[" + result.getMethod().getRealClass().getSimpleName() + "] ";
       String message = prefix + (method.isBeforeClassConfiguration() ? "Before Class passed" : "After Class passed");
       
-      log (message, result, Level.INFO, HtmlFormatter.STYLE_ROW_SUCCESS);
+      log (message, result);
    }   
    
    /**
