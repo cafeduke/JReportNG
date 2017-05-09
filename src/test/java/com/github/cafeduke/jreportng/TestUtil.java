@@ -3,6 +3,7 @@ package com.github.cafeduke.jreportng;
 import static com.github.cafeduke.jreportng.ReportProperties.*;
 
 import java.io.File;
+import java.util.logging.Logger;
 
 @SuppressWarnings("javadoc")
 public class TestUtil
@@ -14,7 +15,7 @@ public class TestUtil
       
    }
    
-   static void sleepInMilli (int milli)
+   public static void sleepInMilli (int milli)
    {
       try 
       {
@@ -26,8 +27,15 @@ public class TestUtil
       }
    }
    
-   static void sleep (int sec)
+   public static void sleep (int sec)
    {
       sleepInMilli(sec * 1000);
    }   
+   
+   public static void sleepAndLog (Logger logger, String mesg, int sleepInMilli)
+   {
+      sleepInMilli (sleepInMilli);
+      System.out.println(mesg);
+      logger.info (mesg);      
+   }
 }

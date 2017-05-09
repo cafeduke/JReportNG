@@ -7,7 +7,7 @@ import com.github.cafeduke.jreportng.AbstractTestCase;
 import com.github.cafeduke.jreportng.JReportLogger;
 
 @SuppressWarnings("javadoc")
-public class LogLevel extends AbstractTestCase
+public class LogLevelTest extends AbstractTestCase
 {
    @JReportLogger
    protected static Logger logger;
