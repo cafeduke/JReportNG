@@ -78,15 +78,15 @@ public class ReportProperties
     */
    static final String JREPORT_SOURCE_RESOURCE [] = new String [] 
    {
-      JREPORT_PREFIX + "/css/log-testclass.css",
-      JREPORT_PREFIX + "/images/tableBGDarkBlue.jpg",
-      JREPORT_PREFIX + "/images/headingBarBlue.jpg",
-      JREPORT_PREFIX + "/images/headingBarLightGreen.jpg",
-      JREPORT_PREFIX + "/images/headingBarLightOrange.jpg",
-      JREPORT_PREFIX + "/images/headingBarLightRed.jpg",
-      JREPORT_PREFIX + "/images/tableBGDarkBlue.jpg",
-      JREPORT_PREFIX + "/images/tableBGDarkBrown.jpg",
-      JREPORT_PREFIX + "/images/tableBGLightBlue.jpg"
+      JREPORT_PREFIX + "/log/css/log-testclass.css",
+      JREPORT_PREFIX + "/log/images/tableBGDarkBlue.jpg",
+      JREPORT_PREFIX + "/log/images/headingBarBlue.jpg",
+      JREPORT_PREFIX + "/log/images/headingBarLightGreen.jpg",
+      JREPORT_PREFIX + "/log/images/headingBarLightOrange.jpg",
+      JREPORT_PREFIX + "/log/images/headingBarLightRed.jpg",
+      JREPORT_PREFIX + "/log/images/tableBGDarkBlue.jpg",
+      JREPORT_PREFIX + "/log/images/tableBGDarkBrown.jpg",
+      JREPORT_PREFIX + "/log/images/tableBGLightBlue.jpg"
    }; 
    
    private ReportProperties()
