@@ -1,12 +1,9 @@
 package com.github.cafeduke.jreportng;
 
 import org.testng.*;
-
-import com.github.cafeduke.jreportng.TestClassResultManager.MethodResultState;
-
-import static com.github.cafeduke.jreportng.ReportProperties.*;
-
 import java.util.logging.*;
+import com.github.cafeduke.jreportng.TestClassResultManager.MethodResultState;
+import static com.github.cafeduke.jreportng.ReportProperties.*;
 
 /**
  * A TestListener that handles test class and test method life cycle events. 
@@ -15,27 +12,27 @@ import java.util.logging.*;
  */
 public class TestListener implements ITestListener, ISuiteListener, IExecutionListener, IConfigurationListener
 {
-   
    /**
     * --------------------------------------------------------
     *          Listener - TestNG Level
     * --------------------------------------------------------
     */      
-   
-   @Override
-   public void onExecutionFinish()
-   {
-      String mesg = "Started executing TestNG instance";
-      log (mesg);      
-      JReportLogUtil.initReportResources();      
-   }
 
    @Override
    public void onExecutionStart()
    {
-      String mesg = "Finished executing TestNG instance";
+      JReportLogUtil.initReportResources();      
+      String mesg = "Started executing TestNG instance";
+      log ("Report Dir=" + System.getProperty("maven.testng.output.dir"));
       log (mesg);
    }   
+   
+   @Override
+   public void onExecutionFinish()
+   {
+      String mesg = "Finished executing TestNG instance";
+      log (mesg);      
+   }
    
    /**
     * --------------------------------------------------------
@@ -64,12 +61,12 @@ public class TestListener implements ITestListener, ISuiteListener, IExecutionLi
     */
 
    @Override
-   public void onStart(ITestContext arg0)
+   public void onStart(ITestContext context)
    {
    }   
 
    @Override
-   public void onFinish(ITestContext arg0)
+   public void onFinish(ITestContext context)
    {
    }
    
@@ -125,12 +122,29 @@ public class TestListener implements ITestListener, ISuiteListener, IExecutionLi
       // TODO Auto-generated method stub
       
    }
-
+   
    /**
     * --------------------------------------------------------
     *                Listener - Test Configuration Level
     * --------------------------------------------------------
     */     
+
+   @Override
+   public void onConfigurationSuccess(ITestResult result)
+   {
+      ITestNGMethod method = result.getMethod();
+      String prefix = "[" + result.getMethod().getRealClass().getSimpleName() + "] ";
+      String message = prefix + (method.isBeforeClassConfiguration() ? "Before Class passed" : "After Class passed");
+      
+      log (message, result);
+   }
+
+   @Override
+   public void onConfigurationSkip (ITestResult result)
+   {
+      // TODO Auto-generated method stub
+   }
+
 
    @Override
    public void onConfigurationFailure(ITestResult result)
@@ -143,22 +157,6 @@ public class TestListener implements ITestListener, ISuiteListener, IExecutionLi
       log ("StackTrace", result, Level.SEVERE,  result.getThrowable());
    }
 
-   @Override
-   public void onConfigurationSkip (ITestResult result)
-   {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void onConfigurationSuccess(ITestResult result)
-   {
-      ITestNGMethod method = result.getMethod();
-      String prefix = "[" + result.getMethod().getRealClass().getSimpleName() + "] ";
-      String message = prefix + (method.isBeforeClassConfiguration() ? "Before Class passed" : "After Class passed");
-      
-      log (message, result);
-   }   
-   
    /**
     * A trim version made up of package, class and method name extracted from  
     * {@link org.testng.ITestResult ITestResult} 

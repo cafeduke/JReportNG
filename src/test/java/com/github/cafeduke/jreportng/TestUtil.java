@@ -5,7 +5,6 @@ import static com.github.cafeduke.jreportng.ReportProperties.*;
 import java.io.File;
 import java.util.logging.Logger;
 
-@SuppressWarnings("javadoc")
 public class TestUtil
 {
    public static final File DIR_JREPORT_TEST_RESOURCE = new File ("src/test/resources" + JREPORT_PREFIX);

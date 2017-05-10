@@ -65,6 +65,9 @@ public class ReportProperties
     */
    public static final String JREPORT_LOG_TESTCLASS_CSS = "css/log-testclass.css";
    
+   
+   static final File DIR_JREPORT_HOME = null;
+   
    /**
     * Line separator
     */
@@ -83,8 +86,8 @@ public class ReportProperties
       JREPORT_PREFIX + "/images/headingBarLightRed.jpg",
       JREPORT_PREFIX + "/images/tableBGDarkBlue.jpg",
       JREPORT_PREFIX + "/images/tableBGDarkBrown.jpg",
-      JREPORT_PREFIX + "/images/tableBGLightBlue.jpg"               
-   };     
+      JREPORT_PREFIX + "/images/tableBGLightBlue.jpg"
+   }; 
    
    private ReportProperties()
    {

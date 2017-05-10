@@ -6,7 +6,6 @@ import org.testng.xml.XmlSuite.FailurePolicy;
 
 import com.github.cafeduke.jreportng.TestListener;
 
-@SuppressWarnings("javadoc")
 public class TestRunner
 {
    static
