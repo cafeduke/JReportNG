@@ -43,7 +43,7 @@ public class HtmlFormatter extends Formatter
    /**
     * Date formatter
     */
-   private SimpleDateFormat formatter = DATE_FORMAT;   
+   private SimpleDateFormat formatter = LOG_DATE_FORMAT;   
   
    /**
     * HTML page title
@@ -119,7 +119,7 @@ public class HtmlFormatter extends Formatter
       StringBuilder builder = new StringBuilder ();
       builder.append ("<html>" + LINE_SEP);
       builder.append ("<head>" + LINE_SEP);
-      builder.append ("    <link rel='stylesheet' type='text/css' href='" + JREPORT_LOG_TESTCLASS_CSS + "' />" + LINE_SEP);
+      builder.append ("    <link rel='stylesheet' type='text/css' href='" + LOG_TESTCLASS_CSS + "' />" + LINE_SEP);
       builder.append ("</head>" + LINE_SEP);
       builder.append ("<body>" + LINE_SEP);
       

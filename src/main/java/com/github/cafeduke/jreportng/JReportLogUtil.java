@@ -100,14 +100,14 @@ public class JReportLogUtil
    {
       try
       {
-         String defaultHtmlLog   = JREPORT_LOG_DEFAULT_CLASS.getName() + ".html";
-         String defaultClassName = JREPORT_LOG_DEFAULT_CLASS.getSimpleName();
+         String defaultHtmlLog   = LOG_DEFAULT_CLASS.getName() + ".html";
+         String defaultClassName = LOG_DEFAULT_CLASS.getSimpleName();
          
          // Create the default log file if it does not exist
-         File fileHtmlDefaultLog = new File (DIR_JREPORT_TARGET_LOG, defaultHtmlLog);
+         File fileHtmlDefaultLog = new File (DIR_REPORT_LOG_HOME, defaultHtmlLog);
          fileHtmlDefaultLog.createNewFile();
          
-         File file = new File (DIR_JREPORT_TARGET_LOG, "index.html");
+         File file = new File (DIR_REPORT_LOG_HOME, "index.html");
          PrintWriter out = new PrintWriter (new FileWriter (file));
          out.println ("<html>");
          out.println ("<frameset cols='15%,*'>");
@@ -120,11 +120,11 @@ public class JReportLogUtil
          out.println ("</html>");         
          out.close();
          
-         file = new File (DIR_JREPORT_TARGET_LOG, "package-root.html");
+         file = new File (DIR_REPORT_LOG_HOME, "package-root.html");
          out = new PrintWriter (new FileWriter (file));
          out.println ("<html>");
          out.println ("<head>");
-         out.println ("   <link type='text/css' rel='stylesheet' href='" + JREPORT_LOG_TESTCLASS_CSS + "' ></link>");
+         out.println ("   <link type='text/css' rel='stylesheet' href='" + LOG_TESTCLASS_CSS + "' ></link>");
          out.println ("</head>");
          out.println ("<body>");
          out.println ("<table class='tableLogLink'>");
@@ -152,12 +152,12 @@ public class JReportLogUtil
    {
       try
       {
-         File file = new File (DIR_JREPORT_TARGET_LOG, "package-" + packageName + ".html");
+         File file = new File (DIR_REPORT_LOG_HOME, "package-" + packageName + ".html");
          PrintWriter out = new PrintWriter (new FileWriter (file));
 
          out.println ("<html>");
          out.println ("<head>");
-         out.println ("   <link type='text/css' rel='stylesheet' href='" + JREPORT_LOG_TESTCLASS_CSS  + "' ></link>");
+         out.println ("   <link type='text/css' rel='stylesheet' href='" + LOG_TESTCLASS_CSS  + "' ></link>");
          out.println ("</head>");
          out.println ("<body>");
          out.println ("<table class='tableLogLink'>");
@@ -185,12 +185,12 @@ public class JReportLogUtil
    {
       try
       {
-         File file = new File (DIR_JREPORT_TARGET_LOG, "packages.html");
+         File file = new File (DIR_REPORT_LOG_HOME, "packages.html");
          PrintWriter out = new PrintWriter (new FileWriter (file));
 
          out.println ("<html>");
          out.println ("<head>");
-         out.println ("   <link type='text/css' rel='stylesheet' href='" + JREPORT_LOG_TESTCLASS_CSS + "'></link>");
+         out.println ("   <link type='text/css' rel='stylesheet' href='" + LOG_TESTCLASS_CSS + "'></link>");
          out.println ("</head>");
          out.println ("<body>");
          out.println ("<table class='tableLogLink'>");
@@ -218,9 +218,12 @@ public class JReportLogUtil
       }
    }
    
-   public static void handleTestRunStart ()
+   /**
+    * Initialize Reporting
+    */
+   public static void handleTestRunStart()
    {      
-      if (new File (DIR_JREPORT_TARGET_LOG, "index.html").exists())
+      if (new File (DIR_REPORT_LOG_HOME, "index.html").exists())
          return;
       
       try
@@ -228,15 +231,15 @@ public class JReportLogUtil
          startTime = LocalDateTime.now();
          
          // Set ReportNG system properties
-         System.setProperty("org.uncommons.reportng.stylesheet", "target/jreportng");
+         System.setProperty("org.uncommons.reportng.stylesheet", PATH_TO_CUSTOM_REPORTNG_CSS);
          
-         DIR_JREPORT_TARGET_LOG.mkdirs();         
+         DIR_REPORT_LOG_HOME.mkdirs();         
          
-         for (String currResource : JREPORT_SOURCE_RESOURCE)
+         for (String currResource : LIST_SOURCE_RESOURCE)
          {
             Path pathResource = Paths.get(currResource.replace(JREPORT_PREFIX, ""));
             String fileTarget = pathResource.getFileName().toString();            
-            File dirTarget = new File (DIR_JREPORT_TARGET_RESOURCE, pathResource.getParent().toString());
+            File dirTarget = new File (DIR_REPORT_HOME, pathResource.getParent().toString());
             
             if (!dirTarget.exists())
                dirTarget.mkdirs();
@@ -252,6 +255,10 @@ public class JReportLogUtil
       }
    }
    
+   /**
+    * Complete reporting.
+    * Add pages with details that are known at the end of test execution.
+    */
    public static void handleTestRunCompletion ()
    {
       try
@@ -289,13 +296,17 @@ public class JReportLogUtil
    {
       int pieChartItemValue[] = new int[] {testRunPass, testRunFail, testRunSkip};
       
-      File fileOverview = new File (ReportProperties.DIR_JREPORT_HOME, "overview.html");
+      File fileOverview = new File (DIR_REPORT_HOME, "overview.html");
       PrintWriter out = new PrintWriter (new FileWriter (fileOverview));      
       out.println ("<html>");
       out.println ("<head>   ");
-      out.println ("   <link type='text/css' rel='stylesheet' href='jquery-ui/themes/start/jquery-ui-1.9.1.custom.css'></link>");
-      out.println ("   <script type='text/javascript' src='js/jquery/jquery-1.8.2.min.js'></script>");
-      out.println ("   <script type='text/javascript' src='js/jquery/jquery-ui-1.9.1.custom.min.js'></script>");
+      
+      out.println ("   <link type='text/css' rel='stylesheet' href='css/overview.css'></link>");
+      out.println ("   <link type='text/css' rel='stylesheet' href='jquery-ui/themes/start/jquery-ui-1.9.1.custom.css'></link>");    
+      
+      out.println ("   <script type='text/javascript' src='jquery/jquery-1.8.2.min.js'></script>");
+      out.println ("   <script type='text/javascript' src='jquery-ui/js/jquery-ui-1.9.1.custom.min.js'></script>");
+      
       out.println ("   <script type='text/javascript'>");
       out.println ("");
       out.println ("      $( ");
@@ -306,6 +317,7 @@ public class JReportLogUtil
       out.println ("      );");
       out.println ("");
       out.println ("   </script>");
+      
       out.println ("</head>");
       out.println ("<body>");
 
@@ -335,7 +347,13 @@ public class JReportLogUtil
          pieChartItemSum += currItem;      
       
       out.println ("   <table class='stretch'>");
-      out.println ("   <tr height='100%'>");
+      out.println ("   <tr height='60%'>");
+      out.println ("   <td>");
+      out.println ("      PieChart");
+      out.println ("   </td>");
+      out.println ("   </tr>");
+      
+      out.println ("   <tr height='40%'>");
       out.println ("   <td>");
       out.println ("      <table class='resultTable posCenter'>");
       out.println ("      <tr><th>&nbsp    </th><th> Count </th><th> Percent </th></tr>");

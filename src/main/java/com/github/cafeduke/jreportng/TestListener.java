@@ -168,7 +168,7 @@ public class TestListener implements ITestListener, ISuiteListener, IExecutionLi
     */
    public static String getDisplayName (ITestResult result)
    {
-      Class<?> testClass = (result == null || result.getTestClass()  == null) ? JREPORT_LOG_DEFAULT_CLASS : result.getTestClass().getRealClass();
+      Class<?> testClass = (result == null || result.getTestClass()  == null) ? LOG_DEFAULT_CLASS : result.getTestClass().getRealClass();
       String  testMethod = (result == null || result.getMethod() == null)     ? "" : result.getMethod().getMethodName();
       String testClassName = ReportProperties.getDisplayName(testClass);      
       return testClassName + "-" + testMethod;
@@ -243,7 +243,7 @@ public class TestListener implements ITestListener, ISuiteListener, IExecutionLi
     */
    public static void log (String mesg, ITestResult result, Level level, String styleClass, Throwable thrown)
    {
-      Class<?> testClass = (result == null || result.getTestClass()  == null) ? JREPORT_LOG_DEFAULT_CLASS : result.getTestClass().getRealClass();
+      Class<?> testClass = (result == null || result.getTestClass()  == null) ? LOG_DEFAULT_CLASS : result.getTestClass().getRealClass();
       String  testMethod = (result == null || result.getMethod() == null) ? "" : result.getMethod().getMethodName();
       Logger logger = LoggerUtil.getLogger(testClass);
       

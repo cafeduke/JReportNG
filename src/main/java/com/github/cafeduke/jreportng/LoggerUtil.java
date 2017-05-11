@@ -73,14 +73,14 @@ public final class LoggerUtil
          return;
          
       logger.setUseParentHandlers(false);
-      logger.setLevel(JREPORT_LOG_LEVEL);
+      logger.setLevel(LOG_LEVEL);
       Handler handler = null;
       try
       {
-         DIR_JREPORT_TARGET_LOG.mkdirs();
-         String logFilePath = new File (DIR_JREPORT_TARGET_LOG, logFileName).getAbsolutePath();
+         DIR_REPORT_LOG_HOME.mkdirs();
+         String logFilePath = new File (DIR_REPORT_LOG_HOME, logFileName).getAbsolutePath();
          handler = new FileHandler (logFilePath);
-         handler.setLevel(JREPORT_LOG_LEVEL);
+         handler.setLevel(LOG_LEVEL);
          handler.setFormatter(new HtmlFormatter(logTitle));
       }
       catch (IOException e)
