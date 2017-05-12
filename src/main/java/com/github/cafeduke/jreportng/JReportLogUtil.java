@@ -223,18 +223,26 @@ public class JReportLogUtil
     */
    public static void handleTestRunStart()
    {      
+      startTime = LocalDateTime.now();
+      System.setProperty("org.uncommons.reportng.stylesheet", PATH_TO_CUSTOM_REPORTNG_CSS);
+      
       if (new File (DIR_REPORT_LOG_HOME, "index.html").exists())
          return;
       
+      setupJReportResources ();
+   }
+
+   /**
+    * Setup maven target directory DIR_REPORT_HOME with resources.
+    */
+   private static void setupJReportResources ()
+   {
       try
       {
-         startTime = LocalDateTime.now();
-         
-         // Set ReportNG system properties
-         System.setProperty("org.uncommons.reportng.stylesheet", PATH_TO_CUSTOM_REPORTNG_CSS);
-         
+         // Create report log home directory
          DIR_REPORT_LOG_HOME.mkdirs();         
          
+         // Copy all the source resources to maven target report home
          for (String currResource : LIST_SOURCE_RESOURCE)
          {
             Path pathResource = Paths.get(currResource.replace(JREPORT_PREFIX, ""));
@@ -246,7 +254,8 @@ public class JReportLogUtil
             
             Files.copy(JReportLogUtil.class.getResourceAsStream(currResource), new File (dirTarget, fileTarget).toPath(), StandardCopyOption.REPLACE_EXISTING);
          }
-         
+
+         // Create an index file for all the HTML logs   
          JReportLogUtil.writeLogIndexHtml ();         
       }
       catch (Exception e)
