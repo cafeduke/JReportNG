@@ -310,22 +310,58 @@ public class JReportLogUtil
       out.println ("<html>");
       out.println ("<head>   ");
       
-      out.println ("   <link type='text/css' rel='stylesheet' href='css/overview.css'></link>");
-      out.println ("   <link type='text/css' rel='stylesheet' href='jquery-ui/themes/start/jquery-ui-1.9.1.custom.css'></link>");    
+      out.println ("<link type='text/css' rel='stylesheet' href='css/overview.css'></link>");
+      out.println ("<link type='text/css' rel='stylesheet' href='jquery-ui/themes/start/jquery-ui-1.9.1.custom.css'></link>");    
+      out.println ("<link type='text/css' rel='stylesheet' href='jqplot/jquery.jqplot.min.css' />");
       
-      out.println ("   <script type='text/javascript' src='jquery/jquery-1.8.2.min.js'></script>");
-      out.println ("   <script type='text/javascript' src='jquery-ui/js/jquery-ui-1.9.1.custom.min.js'></script>");
-      
-      out.println ("   <script type='text/javascript'>");
+      out.println ("<script type='text/javascript' src='jquery/jquery-1.8.2.min.js'></script>");
+      out.println ("<script type='text/javascript' src='jquery-ui/js/jquery-ui-1.9.1.custom.min.js'></script>");
+      out.println ("<script type='text/javascript' src='jqplot/jquery.jqplot.min.js'></script>");
+      out.println ("<script type='text/javascript' src='jqplot/jqplot.donutRenderer.min.js'></script>");
       out.println ("");
-      out.println ("      $( ");
-      out.println ("         function ()");
+      
+      out.println ("<script>");
+      out.println ("$(document).ready(function()");
+      out.println ("{");
+      out.println (String.format("   var s1 = [['fail',%d], ['skip',%d], ['pass',%d]];", testRunFail, testRunSkip, testRunPass));
+      out.println ("   var plot3 = $.jqplot('chart', [s1], ");
+      out.println ("   {");
+      out.println ("      animate: true,");
+      out.println ("      seriesColors: ['rgb(200,0,0)','rgb(255,128 ,0)','rgb(0,128,64)'],");
+      out.println ("      seriesDefaults: ");
+      out.println ("      {");
+      out.println ("         renderer:$.jqplot.DonutRenderer,");
+      out.println ("         rendererOptions:");
       out.println ("         {");
-      out.println ("            $('#accordion').accordion({ header: 'div#accordionTitle'});");
+      out.println ("            sliceMargin: 3,");
+      out.println ("            startAngle: 0,");
+      out.println ("            showDataLabels: true,");
+      out.println ("            dataLabels: 'value'");
       out.println ("         }");
-      out.println ("      );");
+      out.println ("      },");
+      out.println ("      grid: ");
+      out.println ("      {");
+      out.println ("         background:'rgba(255,255,255,0)',");
+      out.println ("         borderWidth: 0,");
+      out.println ("         shadow: false");
+      out.println ("      }");
+      out.println ("   });");
+      out.println ("});");
       out.println ("");
-      out.println ("   </script>");
+      
+      out.println ("$( ");
+      out.println ("   function ()");
+      out.println ("   {");
+      out.println ("      $('#accordion').accordion({ header: 'div#accordionTitle'});");
+      out.println ("   }");
+      out.println (");");
+      out.println ("");
+      out.println ("</script>");
+      
+      out.println ("<style>");
+      out.println ("   .jqplot-data-label { color:rgb(230,230,230);    }");
+      out.println ("   #chart             { width:450px; height:450px; }");
+      out.println ("</style>");
       
       out.println ("</head>");
       out.println ("<body>");
@@ -356,13 +392,13 @@ public class JReportLogUtil
          pieChartItemSum += currItem;      
       
       out.println ("   <table class='stretch'>");
-      out.println ("   <tr height='60%'>");
+      out.println ("   <tr height='70%'>");
       out.println ("   <td>");
-      out.println ("      PieChart");
+      out.println ("      <div id='chart' class='posCenter'></div>");
       out.println ("   </td>");
       out.println ("   </tr>");
       
-      out.println ("   <tr height='40%'>");
+      out.println ("   <tr height='30%'>");
       out.println ("   <td>");
       out.println ("      <table class='resultTable posCenter'>");
       out.println ("      <tr><th>&nbsp    </th><th> Count </th><th> Percent </th></tr>");

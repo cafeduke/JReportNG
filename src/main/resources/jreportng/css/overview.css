@@ -25,7 +25,7 @@ body, table
    font-size: 2em;
    font-weight: bold;
    color: white;
-   margin-bottom: 0.5em;
+   margin-bottom: 2px;
 }
 
 /**
@@ -142,6 +142,11 @@ img.posCenter, .posCenter
 img.posCenter
 {
    display: block;
+}
+
+.posBottom
+{
+   margin-top: auto;
 }
 
 .textCenter
