@@ -275,7 +275,7 @@ public class JReportLogUtil
          endTime = LocalDateTime.now();
          setupOverviewHtml ();
       }
-      catch (IOException e)
+      catch (Exception e)
       {
          throw new IllegalStateException ("Error completing report", e);
       }
