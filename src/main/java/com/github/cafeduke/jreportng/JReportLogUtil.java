@@ -394,7 +394,14 @@ public class JReportLogUtil
       out.println ("   <table class='stretch'>");
       out.println ("   <tr height='70%'>");
       out.println ("   <td>");
-      out.println ("      <div id='chart' class='posCenter'></div>");
+      
+      out.println ("      <table class='stretch'>");
+      out.println ("      <tr>");
+      out.println ("         <td align='right'><img src='images/duke.png' height='250px'></div></td>");
+      out.println ("         <td align='center'><div id='chart' class='posCenter'></div></td>");
+      out.println ("      </tr>");
+      out.println ("      </table>");
+
       out.println ("   </td>");
       out.println ("   </tr>");
       

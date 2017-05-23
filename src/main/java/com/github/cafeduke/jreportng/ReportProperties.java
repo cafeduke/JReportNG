@@ -84,6 +84,8 @@ public class ReportProperties
       JREPORT_PREFIX + "/title.html",
       JREPORT_PREFIX + "/css/overview.css",
       JREPORT_PREFIX + "/css/reportng-custom.css",
+      JREPORT_PREFIX + "/images/java.png",
+      JREPORT_PREFIX + "/images/duke.png",
       JREPORT_PREFIX + "/images/bg01.gif",
       JREPORT_PREFIX + "/images/java.png",
       JREPORT_PREFIX + "/images/cafeduke.png",
