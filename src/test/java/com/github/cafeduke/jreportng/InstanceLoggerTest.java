@@ -5,6 +5,7 @@ import org.testng.annotations.*;
 import com.github.cafeduke.jreportng.AbstractTestCase;
 import com.github.cafeduke.jreportng.JReportLogger;
 
+@SuppressWarnings("javadoc")
 public class InstanceLoggerTest extends AbstractTestCase
 {
    @JReportLogger

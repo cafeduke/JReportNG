@@ -3,9 +3,9 @@ package com.github.cafeduke.jreportng;
 import java.util.*;
 import org.testng.*;
 import org.testng.xml.XmlSuite.FailurePolicy;
-
 import com.github.cafeduke.jreportng.TestListener;
 
+@SuppressWarnings("javadoc")
 public class TestRunner
 {
    static
@@ -17,7 +17,7 @@ public class TestRunner
    {
       TestNG testNG = new TestNG ();
       testNG.setVerbose(1);
-      testNG.setConfigFailurePolicy(FailurePolicy.CONTINUE);      
+      testNG.setConfigFailurePolicy(FailurePolicy.CONTINUE); 
       testNG.setListenerClasses(Arrays.asList(TestListener.class));
       
       List<String> listSuite = new ArrayList<String> ();

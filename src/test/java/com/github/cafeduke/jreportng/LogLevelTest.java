@@ -6,10 +6,11 @@ import org.testng.annotations.*;
 import com.github.cafeduke.jreportng.AbstractTestCase;
 import com.github.cafeduke.jreportng.JReportLogger;
 
+@SuppressWarnings("javadoc")
 public class LogLevelTest extends AbstractTestCase
 {
    @JReportLogger
-   protected static Logger logger;
+   public static Logger logger;
    
    @Test
    public void test ()
