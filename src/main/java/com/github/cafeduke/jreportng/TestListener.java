@@ -2,7 +2,6 @@ package com.github.cafeduke.jreportng;
 
 import org.testng.*;
 import java.util.logging.*;
-import com.github.cafeduke.jreportng.TestClassResultManager.MethodResultState;
 import static com.github.cafeduke.jreportng.ReportProperties.*;
 
 /**
@@ -81,9 +80,6 @@ public class TestListener implements ITestListener, ISuiteListener, IExecutionLi
    @Override
    public void onTestStart(ITestResult result)
    {
-      TestClassResultManager resultManager = TestClassResultManager.getInstance(result.getTestClass().getRealClass());
-      resultManager.startedTestMethod(result.getMethod().getMethodName());
-      
       String mesg = "Started executing test " + TestListener.getDisplayName(result);
       log (mesg, result, Level.INFO, HtmlFormatter.STYLE_ROW_HIGHLIGHT);
    }
@@ -91,9 +87,6 @@ public class TestListener implements ITestListener, ISuiteListener, IExecutionLi
    @Override
    public void onTestSuccess(ITestResult result)
    {
-      TestClassResultManager resultManager = TestClassResultManager.getInstance(result.getTestClass().getRealClass());
-      resultManager.setTestMethodState(result.getMethod().getMethodName(), MethodResultState.PASSED);
-      
       String mesg = "Test " + TestListener.getDisplayName(result) + " passed";
       log (mesg, result, Level.INFO, HtmlFormatter.STYLE_ROW_SUCCESS);
    }
@@ -101,9 +94,6 @@ public class TestListener implements ITestListener, ISuiteListener, IExecutionLi
    @Override
    public void onTestSkipped(ITestResult result)
    {
-      TestClassResultManager resultManager = TestClassResultManager.getInstance(result.getTestClass().getRealClass());
-      resultManager.setTestMethodState(result.getMethod().getMethodName(), MethodResultState.SKIPPED);
-      
       String mesg = "Test " + TestListener.getDisplayName(result) + " skipped";
       log(mesg, result, Level.WARNING, HtmlFormatter.STYLE_ROW_WARNING);
    }
@@ -111,9 +101,6 @@ public class TestListener implements ITestListener, ISuiteListener, IExecutionLi
    @Override
    public void onTestFailure(ITestResult result)
    {
-      TestClassResultManager resultManager = TestClassResultManager.getInstance(result.getTestClass().getRealClass());
-      resultManager.setTestMethodState(result.getMethod().getMethodName(), MethodResultState.FAILED);
-      
       String mesg = "Test " + TestListener.getDisplayName(result) + " failed";
       log(mesg, result, Level.SEVERE, result.getThrowable());
    }

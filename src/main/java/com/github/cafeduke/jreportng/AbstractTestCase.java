@@ -60,10 +60,7 @@ public abstract class AbstractTestCase
       Class<?> testClass = getClass ();         
       String className = ReportProperties.getDisplayName(testClass);
       
-      // Use TestClassResultManager to mark the beginning of the test class
       LoggerFactory.injectLogger(testClass);
-      TestClassResultManager.getInstance(testClass).startedTestClass();
-      
       logger = LoggerFactory.getJReportLogger(testClass);      
       logger.info ("Started executing class " + className);      
    }
@@ -77,11 +74,6 @@ public abstract class AbstractTestCase
       Class<?> testClass = getClass ();         
       String className = ReportProperties.getDisplayName(testClass);
       
-      // Use TestClassResultManager to mark the completion of the test class
-      TestClassResultManager resultManager = TestClassResultManager.getInstance(testClass);
-      resultManager.finishedTestClass();
-      
-      logger.info ("Finished executing class " + className + " in " + resultManager.getTimeTaken());
-      logger.info ("Result: " + resultManager.getResultSummary());      
+      logger.info ("Finished executing class " + className);
    }
 }
