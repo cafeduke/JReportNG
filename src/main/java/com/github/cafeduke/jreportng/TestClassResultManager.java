@@ -21,6 +21,8 @@ public class TestClassResultManager
    private TestClassResultManager (Class<?> testClass)
    {
       this.testClass = testClass;
+      this.startTime = LocalDateTime.now();
+      this.endTime = LocalDateTime.now();
    }
    
    static TestClassResultManager getInstance (Class<?> testClass)
@@ -41,11 +43,44 @@ public class TestClassResultManager
    
    void finishedTestClass ()
    {
-      if (startTime == null)
-         throw new IllegalStateException ("startedClass() is not called, but finishedClass() is called. Class=" + testClass.getName());
       endTime = LocalDateTime.now();
    }
    
+   void startedTestMethod (String methodName)
+   {
+      MethodInfo methodInfo = addIfAbsentMethodInfo (methodName);
+      methodInfo.startTime = LocalDateTime.now();
+   }
+
+   void finishedTestMethod (String methodName)
+   {
+      MethodInfo methodInfo = addIfAbsentMethodInfo (methodName);
+      methodInfo.endTime = LocalDateTime.now();
+   }
+
+   void setTestMethodState (String methodName, MethodResultState state)
+   {
+      MethodInfo methodInfo = addIfAbsentMethodInfo (methodName);
+      methodInfo.state = state;      
+   }
+
+   MethodResultState getTestMethodState (String methodName)
+   {
+      MethodInfo methodInfo = mapMethodNameToInfo.get(methodName);
+      return (methodInfo == null) ? MethodResultState.UNKNOWN : methodInfo.state;
+   }
+   
+   MethodInfo addIfAbsentMethodInfo (String methodName)
+   {
+      MethodInfo methodInfo = mapMethodNameToInfo.get(methodName);
+      if (methodInfo == null)
+      {
+         methodInfo = new MethodInfo (methodName);
+         mapMethodNameToInfo.put(methodName, methodInfo);
+      }
+      return methodInfo;
+   }
+
    String getTimeTaken ()
    {
       return formatTime(Duration.between(startTime, endTime).toMillis());
@@ -54,39 +89,6 @@ public class TestClassResultManager
    String getTimeTaken (String methodName)
    {
        return mapMethodNameToInfo.get(methodName).getTimeTaken();  
-   }
-   
-   void startedTestMethod (String methodName)
-   {
-      MethodInfo methodInfo = mapMethodNameToInfo.get(methodName);
-      if (methodInfo == null)
-      {
-         methodInfo = new MethodInfo (methodName);
-         mapMethodNameToInfo.put(methodName, methodInfo);
-      }
-      methodInfo.startTime = LocalDateTime.now();
-   }
-   
-   void finishedTestMethod (String methodName)
-   {
-      MethodInfo methodInfo = mapMethodNameToInfo.get(methodName);
-      if (methodInfo == null)
-         throw new IllegalStateException ("MethodInfo not found. startedMethod() not called, but finishedMethod() is called. Class=" + testClass.getName());
-      methodInfo.endTime = LocalDateTime.now();      
-   }
-   
-   void setTestMethodState (String methodName, MethodResultState state)
-   {
-      MethodInfo methodInfo = mapMethodNameToInfo.get(methodName);
-      if (methodInfo == null)
-         throw new IllegalStateException ("MethodInfo not found. startedMethod() not called, but setMethodState() is called. Class=" + testClass.getName());
-      methodInfo.state = state;      
-   }
-   
-   MethodResultState getTestMethodState (String methodName)
-   {
-      MethodInfo methodInfo = mapMethodNameToInfo.get(methodName);
-      return (methodInfo == null) ? MethodResultState.UNKNOWN : methodInfo.state;
    }
    
    String getResultSummary ()
@@ -121,6 +123,8 @@ public class TestClassResultManager
       public MethodInfo (String methodName)
       {
          this.methodName = methodName;
+         this.startTime = LocalDateTime.now();
+         this.endTime = LocalDateTime.now();
       }
       
       String getTimeTaken ()
