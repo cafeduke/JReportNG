@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MyTest"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.606">
+  <properties />
+  
+  
+            <testcase name="testQ" time="0.403" classname="com.github.cafeduke.jreportng.StaticLoggerInjectionTest" />
+                <testcase name="testP" time="0.203" classname="com.github.cafeduke.jreportng.StaticLoggerInjectionTest" />
+      
+</testsuite>

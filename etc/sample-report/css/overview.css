@@ -1,0 +1,304 @@
+/* Main Index Selectors */
+
+body
+{
+   margin: 0px;
+}
+
+body, table
+{
+   font-size: 62.5%;
+   font-family: "Arial";
+   font-size: 12px;   
+}
+
+.titleBody
+{
+   margin: 0em;
+   padding: 0em;
+   font-size: 62.5%
+}
+
+.titleHeading
+{
+   font-family: Tahoma;
+   font-size: 2em;
+   font-weight: bold;
+   color: white;
+   margin-bottom: 2px;
+}
+
+/**
+ * ---------------------------------------
+ * Title Table
+ * ---------------------------------------
+ */
+
+table.titleTable
+{
+   background-image: url('../images/headerBG.jpg');
+   background-color: rgb(179, 204, 228);
+   width: 100%;
+   height: 65px;
+   margin: 0em;
+   border: 0em;
+   padding: 0.5em 1em 0em 1em;
+   white-space: nowrap;
+}
+
+
+table.titleTable table
+{
+   text-align: center;
+   width: 100%;
+   padding: 0em;
+}
+
+table.titleTable a
+{
+   color: White;
+   text-decoration: none;
+   padding: 0px 5px;
+}
+
+table.titleTable a:hover, .categoryTable a:hover
+{
+   text-decoration: underline;
+}
+
+.lblTestMode
+{
+   color: White;
+   font-weight: bold;
+   white-space: nowrap;
+}
+
+#selectMode
+{
+   color: Black;
+}
+
+.columnSpan
+{
+   width: 100%;
+}
+
+.liner
+{
+   background-color: rgb(179, 204, 228);   
+   height: 5px;
+}
+
+/**
+ * ---------------------------------------
+ * Category Table
+ * ---------------------------------------
+ */
+
+table.categoryTable
+{
+   margin: 0em 0em 0em auto;
+   border-collapse: separate;
+   padding: 0em 0em;      
+   white-space: nowrap;
+   background-color: White; 
+   border-spacing: 5px 0px;
+}
+
+table.categoryTable a
+{
+   color: Black;
+   text-decoration: none;
+   padding: 0px 10px;
+}
+
+td.tabSelected
+{   
+   background-image: url('../images/headingBarBlue.jpg');
+   border-color: rgb(0, 128, 255);
+   border-style: outset;
+   border-width: 0px 2px 3px 3px;
+}
+
+td.tabRegular
+{   
+   background-image: url('../images/headingBarDarkBlue.jpg');
+   border-color: rgb(0, 64, 128);
+   border-style: outset;
+   border-width: 0px 2px 3px 3px;
+}
+
+/**
+ * ---------------------------------------
+ * Overview Table
+ * ---------------------------------------
+ */
+
+img.posCenter, .posCenter
+{
+   margin: auto auto;    
+}
+
+img.posCenter
+{
+   display: block;
+}
+
+.posBottom
+{
+   margin-top: auto;
+}
+
+.textCenter
+{
+   text-align: center;
+}
+
+.textLeft
+{
+   text-align: left;
+}
+
+table.stretch
+{
+   width : 100%;
+   height: 100%;
+   border-spacing: 0px;   
+}
+
+table.layoutTable
+{
+   border-collapse: collapse;
+   width  : 100%;
+   height : 100%;
+}
+
+table.layoutTable .overview
+{
+   height: 70%;
+   background-image: url('../images/bg01.gif');
+}
+
+table.layoutTable .testModes
+{
+   height: 30%;  
+   background-color:rgb(9,124,176);
+}
+
+/**
+ * ---------------------------------------
+ * Result Table
+ * ---------------------------------------
+ */
+
+table.resultTable
+{
+   margin-top: 10px; 
+   border-collapse: seperate; 
+   width: 60%;
+}
+
+table.resultTable th, table.resultTable td 
+{
+   padding: 3px 5px;
+
+   width  : 33%;
+   height : 15px;
+   text-align: center;
+
+   border-width: 1px;
+   border-color: rgb(0,64,128);
+   border-style: outset;
+}
+
+table.resultTable th 
+{
+   background-image: url("../images/headingBarDarkBlue.jpg");
+   white-space: nowrap;
+}
+
+table.resultTable td
+{
+   background-color: White;
+   white-space: nowrap;
+}
+
+table.resultTable .pass
+{
+   background-image: url("../images/headingBarDarkGreen.jpg");
+}
+
+table.resultTable .fail
+{
+   background-image: url("../images/headingBarDarkRed.jpg");
+}
+
+table.resultTable .skip
+{
+   background-image: url("../images/headingBarDarkOrange.jpg");
+}
+
+/**
+ * ---------------------------------------
+ * Accordion
+ * ---------------------------------------
+ */
+
+#accordion
+{
+   width: 100%;
+   margin: 20px auto;
+}
+
+#accordion table
+{
+   width: 100%;
+   border-collapse: collapse; 
+}
+
+#accordion table th, #accordion table td
+{
+   padding: 3px 5px;
+   border-width: 1px;
+   border-color: rgb(107,138,15);
+   border-style: outset;
+}
+
+#tabs .ui-tabs-panel
+{
+   background-image: url('../images/bg01.gif');
+}
+
+#tabs .ui-tabs-nav 
+{
+   text-align: right;  
+   padding: 2px 0px 0px 0px;
+   margin: auto 0em auto auto;   
+}
+
+#tabs .ui-tabs-nav li 
+{
+   display: inline-block;
+   float: none;
+   margin: 0em;   
+
+   font-family: Tahoma;
+   font-size: 12px;
+   font-weight: bold;
+   padding: 0px;
+}
+
+.testModes table.resultTable
+{
+   font-family: "Verdana";
+   font-size: 10px;
+   width: 80%;
+}
+
+.blankRegressMode
+{
+   width  : 100%;
+   height : 100%;
+   margin  : 0px;
+   background-color: rgb(23,99,174);   
+}

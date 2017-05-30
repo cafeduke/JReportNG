@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MyTest"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.612">
+  <properties />
+  
+  
+            <testcase name="testB" time="0.307" classname="com.github.cafeduke.jreportng.InstanceLoggerTest" />
+                <testcase name="testA" time="0.305" classname="com.github.cafeduke.jreportng.InstanceLoggerTest" />
+      
+</testsuite>

@@ -1,0 +1,114 @@
+<html>
+<head>   
+<link type='text/css' rel='stylesheet' href='css/overview.css'></link>
+<link type='text/css' rel='stylesheet' href='jquery-ui/themes/start/jquery-ui-1.9.1.custom.css'></link>
+<link type='text/css' rel='stylesheet' href='jqplot/jquery.jqplot.min.css' />
+<script type='text/javascript' src='jquery/jquery-1.8.2.min.js'></script>
+<script type='text/javascript' src='jquery-ui/js/jquery-ui-1.9.1.custom.min.js'></script>
+<script type='text/javascript' src='jqplot/jquery.jqplot.min.js'></script>
+<script type='text/javascript' src='jqplot/jqplot.donutRenderer.min.js'></script>
+
+<script>
+$(document).ready(function()
+{
+   var s1 = [['fail',0], ['skip',0], ['pass',6]];
+   var plot3 = $.jqplot('chart', [s1], 
+   {
+      animate: true,
+      seriesColors: ['rgb(200,0,0)','rgb(255,128 ,0)','rgb(0,128,64)'],
+      seriesDefaults: 
+      {
+         renderer:$.jqplot.DonutRenderer,
+         rendererOptions:
+         {
+            sliceMargin: 3,
+            startAngle: 0,
+            showDataLabels: true,
+            dataLabels: 'value'
+         }
+      },
+      grid: 
+      {
+         background:'rgba(255,255,255,0)',
+         borderWidth: 0,
+         shadow: false
+      }
+   });
+});
+
+$( 
+   function ()
+   {
+      $('#accordion').accordion({ header: 'div#accordionTitle'});
+   }
+);
+
+</script>
+<style>
+   .jqplot-data-label { color:rgb(230,230,230);    }
+   #chart             { width:450px; height:450px; }
+</style>
+</head>
+<body>
+
+<table class='layoutTable'>
+<tr class='overview'>
+<td width='60%'>        
+   <table class='stretch'>
+   <tr height='70%'>
+   <td>
+      <table class='stretch'>
+      <tr>
+         <td align='right'><img src='images/duke.png' height='250px'></div></td>
+         <td align='center'><div id='chart' class='posCenter'></div></td>
+      </tr>
+      </table>
+   </td>
+   </tr>
+   <tr height='30%'>
+   <td>
+      <table class='resultTable posCenter'>
+      <tr><th>&nbsp    </th><th> Count </th><th> Percent </th></tr>
+      <tr><th class='pass'>Pass</th><td>6</td><td>100.00%</td></tr>
+      <tr><th class='fail'>Fail</th><td>0</td><td>0.00%</td></tr>
+      <tr><th class='skip'>Skip</th><td>0</td><td>0.00%</td></tr>
+      </table>
+   </td>
+   </tr>
+   </table>
+</td>
+<td width='40%' valign='top'>
+ 
+   <!-- Accordion -->
+   <div id='accordion'>
+      <div id='accordionTitle'>Regress Info</div>
+      <div>
+         <table>
+            <tr><th>Start Time</th><td colspan='2'>2017-05-29T12:57:23.335</td></tr>
+            <tr><th>End Time  </th><td colspan='2'>2017-05-29T12:57:25.422</td></tr>
+            <tr><th>Duration  </th><td colspan='2'>00 : 00 : 02</td></tr>
+         </table>
+      </div>
+      <div id='accordionTitle'>Java Runtime</div>
+      <div>
+         <table>
+            <tr><th>Java Version             </th><td colspan='2'>1.8.0_101</td></tr>
+            <tr><th>Java Home                </th><td colspan='2'>C:\Program Files\Java\jdk1.8.0_101\jre</td></tr>
+            <tr><th>Java Class Version       </th><td colspan='2'>52.0</td></tr>
+         </table>
+      </div>
+      <div id='accordionTitle'>Platform</div>
+      <div>
+         <table>
+            <tr><th>Operating System         </th><td colspan='2'>Windows 7</td></tr>
+            <tr><th>Operating System Version </th><td colspan='2'>6.1</td></tr>
+            <tr><th>Architecture             </th><td colspan='2'>amd64</td></tr>
+         </table>
+      </div>
+   </div>
+
+</td>
+</tr>
+</table>
+</body>
+</html>
