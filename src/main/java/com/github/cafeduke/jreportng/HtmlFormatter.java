@@ -117,9 +117,12 @@ public class HtmlFormatter extends Formatter
       final String tableHeadingStyle  = "class='logRowHeading'";
       
       StringBuilder builder = new StringBuilder ();
+      builder.append ("<?xml version='1.0' encoding='utf-8' ?>" + LINE_SEP);
+      builder.append ("<!doctype html>" + LINE_SEP);
       builder.append ("<html>" + LINE_SEP);
       builder.append ("<head>" + LINE_SEP);
-      builder.append ("    <link rel='stylesheet' type='text/css' href='" + LOG_TESTCLASS_CSS + "' />" + LINE_SEP);
+      builder.append ("   <meta http-equiv='Content-Type' content='text/html;charset=utf-8' />" + LINE_SEP);
+      builder.append ("   <link rel='stylesheet' type='text/css' href='" + LOG_TESTCLASS_CSS + "' />" + LINE_SEP);
       builder.append ("</head>" + LINE_SEP);
       builder.append ("<body>" + LINE_SEP);
       

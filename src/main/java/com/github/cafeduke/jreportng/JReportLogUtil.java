@@ -109,7 +109,14 @@ public class JReportLogUtil
          
          File file = new File (DIR_REPORT_LOG_HOME, "index.html");
          PrintWriter out = new PrintWriter (new FileWriter (file));
+         
+         out.println ("<?xml version='1.0' encoding='utf-8' ?>");
+         out.println ("<!doctype html>");
          out.println ("<html>");
+         out.println ("<head>");
+         out.println ("   <title>Log Report Index</title>");
+         out.println ("   <meta http-equiv='Content-Type' content='text/html;charset=utf-8' />");
+         out.println ("</head>");
          out.println ("<frameset cols='15%,*'>");
          out.println ("   <frameset rows='40%,*'>");
          out.println ("      <frame name='packageNames' src='packages.html'/>");
@@ -122,8 +129,11 @@ public class JReportLogUtil
          
          file = new File (DIR_REPORT_LOG_HOME, "package-root.html");
          out = new PrintWriter (new FileWriter (file));
+         out.println ("<?xml version='1.0' encoding='utf-8' ?>");
+         out.println ("<!doctype html>");
          out.println ("<html>");
          out.println ("<head>");
+         out.println ("   <meta http-equiv='Content-Type' content='text/html;charset=utf-8' />");
          out.println ("   <link type='text/css' rel='stylesheet' href='" + LOG_TESTCLASS_CSS + "' ></link>");
          out.println ("</head>");
          out.println ("<body>");
@@ -155,8 +165,11 @@ public class JReportLogUtil
          File file = new File (DIR_REPORT_LOG_HOME, "package-" + packageName + ".html");
          PrintWriter out = new PrintWriter (new FileWriter (file));
 
+         out.println ("<?xml version='1.0' encoding='utf-8' ?>");
+         out.println ("<!doctype html>");
          out.println ("<html>");
          out.println ("<head>");
+         out.println ("   <meta http-equiv='Content-Type' content='text/html;charset=utf-8' />");
          out.println ("   <link type='text/css' rel='stylesheet' href='" + LOG_TESTCLASS_CSS  + "' ></link>");
          out.println ("</head>");
          out.println ("<body>");

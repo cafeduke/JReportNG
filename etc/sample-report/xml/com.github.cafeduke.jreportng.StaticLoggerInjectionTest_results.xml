@@ -4,11 +4,11 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="0.606">
+           time="0.605">
   <properties />
   
   
-            <testcase name="testQ" time="0.403" classname="com.github.cafeduke.jreportng.StaticLoggerInjectionTest" />
-                <testcase name="testP" time="0.203" classname="com.github.cafeduke.jreportng.StaticLoggerInjectionTest" />
+            <testcase name="testP" time="0.202" classname="com.github.cafeduke.jreportng.StaticLoggerInjectionTest" />
+                <testcase name="testQ" time="0.403" classname="com.github.cafeduke.jreportng.StaticLoggerInjectionTest" />
       
 </testsuite>

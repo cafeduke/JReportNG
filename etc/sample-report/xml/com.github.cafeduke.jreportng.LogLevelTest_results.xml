@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="0.001">
+           time="0.002">
   <properties />
   
   
-            <testcase name="test" time="0.001" classname="com.github.cafeduke.jreportng.LogLevelTest" />
+            <testcase name="test" time="0.002" classname="com.github.cafeduke.jreportng.LogLevelTest" />
       
 </testsuite>

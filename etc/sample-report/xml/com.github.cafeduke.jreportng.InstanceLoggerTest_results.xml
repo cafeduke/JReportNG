@@ -4,11 +4,11 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="0.612">
+           time="0.626">
   <properties />
   
   
-            <testcase name="testB" time="0.307" classname="com.github.cafeduke.jreportng.InstanceLoggerTest" />
-                <testcase name="testA" time="0.305" classname="com.github.cafeduke.jreportng.InstanceLoggerTest" />
+            <testcase name="testB" time="0.302" classname="com.github.cafeduke.jreportng.InstanceLoggerTest" />
+                <testcase name="testA" time="0.324" classname="com.github.cafeduke.jreportng.InstanceLoggerTest" />
       
 </testsuite>
