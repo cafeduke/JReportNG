@@ -18,21 +18,12 @@ public class ReportProperties
    private static Properties testProperties = System.getProperties();
    
    /**
-    * Organization prefix in the package.
-    * Used in reporting and removed in logs to make logs crisper.
-    */
-   public static final String PACKAGE_ORG_PREFIX = getDefaultProperty("jreport.org.prefix", "package-root");
-   
-   /**
     * JReport files are placed in {@link #DIR_REPORT_HOME}{@code /JREPORT_PREFIX}
     */
    public static final String JREPORT_PREFIX = "/jreportng";
    
-   /**
-    * Path to resources that is relative to project base directory.
-    */
-   public static final File DIR_SOURCE_RESOURCE = new File ("src/main/resources" + JREPORT_PREFIX);   
-   
+   /* Begin: System properties */
+
    /**
     * The home directory for JReport files. Set using system property {@code jreport.home }.
     * Defaults to {@code target/jreport} - typical for a Maven project. 
@@ -40,20 +31,38 @@ public class ReportProperties
    public static final File DIR_REPORT_HOME = new File (getDefaultProperty("jreport.home", "target" + JREPORT_PREFIX));
    
    /**
-    * Path to the directory containing all HTML log files including index.html that links all the HTML logs.
-    * Path = {@link #DIR_REPORT_HOME}{@code /log}
+    * Title of the entire report.
     */
-   public static final File DIR_REPORT_LOG_HOME = new File (DIR_REPORT_HOME, "log");
-   
+   public static final String REPORT_TITLE = getDefaultProperty("jreport.title", "Test Report");
+
    /**
-    * Log level. Set using system property {@code jreport.loglevel}.
+    * Organization prefix in the package.
+    * Used in reporting and removed in logs to make logs crisper.
     */
-   public static final Level LOG_LEVEL = Level.parse(getDefaultProperty("jreport.loglevel", "FINE"));
+   public static final String PACKAGE_ORG_PREFIX = getDefaultProperty("jreport.org.prefix", "package-root");
    
    /**
     * Date format. Set using system property {@code jreport.log.dateformat}. 
     */
    public static final SimpleDateFormat LOG_DATE_FORMAT = new SimpleDateFormat(getDefaultProperty("jreport.log.dateformat", "EEE, dd-MMM-yyyy HH:mm:ss.SSS z"));
+
+   /**
+    * Log level. Set using system property {@code jreport.loglevel}.
+    */
+   public static final Level LOG_LEVEL = Level.parse(getDefaultProperty("jreport.loglevel", "FINE"));
+   
+   /* End: System properties */
+
+   /**
+    * Path to resources that is relative to project base directory.
+    */
+   public static final File DIR_SOURCE_RESOURCE = new File ("src/main/resources" + JREPORT_PREFIX);   
+   
+   /**
+    * Path to the directory containing all HTML log files including index.html that links all the HTML logs.
+    * Path = {@link #DIR_REPORT_HOME}{@code /log}
+    */
+   public static final File DIR_REPORT_LOG_HOME = new File (DIR_REPORT_HOME, "log");
    
    /**
     * The class to be used when the source class of the message is TestListener or not known.
@@ -81,7 +90,6 @@ public class ReportProperties
    static final String LIST_SOURCE_RESOURCE [] = new String [] 
    {
       JREPORT_PREFIX + "/index.html",
-      JREPORT_PREFIX + "/title.html",
       JREPORT_PREFIX + "/css/overview.css",
       JREPORT_PREFIX + "/css/reportng-custom.css",
       JREPORT_PREFIX + "/images/java.png",

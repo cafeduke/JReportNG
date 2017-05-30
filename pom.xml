@@ -103,6 +103,7 @@
 
                <systemPropertyVariables>
                   <jreport.org.prefix>com.github.cafeduke</jreport.org.prefix>
+                  <jreport.title>JReportNG Test Report</jreport.title>
                </systemPropertyVariables>
 
                <properties>

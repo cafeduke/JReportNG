@@ -131,6 +131,61 @@ public class JReportLogUtil
          testRunSkip += context.getSkippedTests().size();
       }
    }
+   
+   
+   /**
+    * Write the title HTML page.
+    */
+   private static void writeTitleHtml ()
+   {
+      try
+      {
+         File file = new File (DIR_REPORT_HOME, "title.html");
+         PrintWriter out = new PrintWriter (new FileWriter (file));
+
+         out.println ("<html>");
+         out.println ("<head>");
+         out.println ("   <link rel='stylesheet' type='text/css' href='css/overview.css' media='all'></link>");
+         out.println ("</head>");
+         out.println ("<body class='titleBody'>");
+         out.println ("");
+         out.println ("<table class='titleTable'>");
+         out.println ("<tr>");
+         out.println ("   <td>");
+         out.println ("      <a href='http://www.oracle.com/technetwork/java/index.html' target='_blank'>");
+         out.println ("         <img src='images/java.png' width='50px' height='50px'/>");
+         out.println ("      </a>");
+         out.println ("   </td>");
+         out.println ("   <td class='columnSpan' valign='bottom'>");
+         out.println ("      <div class='titleHeading'>" + REPORT_TITLE + "</div>");
+         out.println ("   </td>");
+         out.println ("   <td align='left'>");
+         out.println ("      <a href='https://github.com/cafeduke/jreportng/wiki' target='_blank'>");
+         out.println ("         <img src='images/cafeduke.png' width='50px' height='50px'/>");
+         out.println ("      </a>");
+         out.println ("   </td>");
+         out.println ("   <td valign='bottom'>");
+         out.println ("      <table>");
+         out.println ("      <tr>");
+         out.println ("         <td style='width: 33%'><a id='linkOverview' href='overview.html'   target='MainContentFrame'>Overview</a></td>");
+         out.println ("         <td style='width: 33%'><a id='linkReport'   href='html/index.html' target='MainContentFrame'>Report</a></td>");
+         out.println ("         <td style='width: 33%'><a id='linkLog'      href='log/index.html'  target='MainContentFrame'>Log</a></td>        ");
+         out.println ("      </tr>");
+         out.println ("      </table>");
+         out.println ("   </td>");
+         out.println ("</tr>");
+         out.println ("</table>");
+         out.println ("<div class='columnSpan liner'></div>");
+         out.println ("");
+         out.println ("</body>");
+         out.println ("</html>");
+         out.close();
+      }
+      catch (IOException ioe)
+      {
+         throw new IllegalStateException("Error writing all packages file", ioe);
+      }
+   }   
 
    /**
     * Write the index file for all the logs.
@@ -300,7 +355,8 @@ public class JReportLogUtil
             Files.copy(JReportLogUtil.class.getResourceAsStream(currResource), new File (dirTarget, fileTarget).toPath(), StandardCopyOption.REPLACE_EXISTING);
          }
 
-         // Create an index file for all the HTML logs   
+         // Create Index and Title pages
+         JReportLogUtil.writeTitleHtml();
          JReportLogUtil.writeLogIndexHtml ();         
       }
       catch (Exception e)
