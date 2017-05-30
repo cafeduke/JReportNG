@@ -20,7 +20,7 @@ public class TestListener implements ITestListener, ISuiteListener, IExecutionLi
    @Override
    public void onExecutionStart()
    {
-      JReportLogUtil.handleTestRunStart();      
+      JReportLogUtil.handleTestRunStart();
       String mesg = "Started executing TestNG instance";
       log ("Report Dir=" + System.getProperty("maven.testng.output.dir"));
       log (mesg);
@@ -29,9 +29,9 @@ public class TestListener implements ITestListener, ISuiteListener, IExecutionLi
    @Override
    public void onExecutionFinish()
    {
-      JReportLogUtil.handleTestRunCompletion();
       String mesg = "Finished executing TestNG instance";
-      log (mesg);      
+      log (mesg);
+      JReportLogUtil.handleTestRunCompletion();
    }
    
    /**
@@ -232,7 +232,7 @@ public class TestListener implements ITestListener, ISuiteListener, IExecutionLi
    {
       Class<?> testClass = (result == null || result.getTestClass()  == null) ? LOG_DEFAULT_CLASS : result.getTestClass().getRealClass();
       String  testMethod = (result == null || result.getMethod() == null) ? "" : result.getMethod().getMethodName();
-      Logger logger = LoggerUtil.getLogger(testClass);
+      Logger logger = LoggerFactory.getJReportLogger(testClass);
       
       if (styleClass == null)
       {

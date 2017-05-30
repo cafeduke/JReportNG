@@ -19,6 +19,11 @@ public final class LoggerUtil
     */
    public static List<Handler> LIST_HANDLER = new ArrayList<> (); 
    
+   /**
+    * This is required to maintain a reference to the global default JReportNG logger.
+    */
+   private static Logger DEFAULT_LOGGER = LoggerUtil.getLogger(LOG_DEFAULT_CLASS);
+   
    private LoggerUtil ()
    {
       
@@ -32,9 +37,12 @@ public final class LoggerUtil
     */
    protected static Logger getLogger (Class<?> testClass)
    {
+      if (testClass == LOG_DEFAULT_CLASS && DEFAULT_LOGGER != null)
+         return DEFAULT_LOGGER;
+      
       String loggerName  = testClass.getName();      
       String logFileName = testClass.getName() + ".html";
-      String logTitle    = testClass.getSimpleName();        
+      String logTitle    = testClass.getSimpleName();
       return createLogger (loggerName, logFileName, logTitle);
    }
    
@@ -71,7 +79,7 @@ public final class LoggerUtil
    {
       if (logger.getHandlers() != null && logger.getHandlers().length > 0)
          return;
-         
+
       logger.setUseParentHandlers(false);
       logger.setLevel(LOG_LEVEL);
       Handler handler = null;
@@ -79,14 +87,14 @@ public final class LoggerUtil
       {
          DIR_REPORT_LOG_HOME.mkdirs();
          String logFilePath = new File (DIR_REPORT_LOG_HOME, logFileName).getAbsolutePath();
-         handler = new FileHandler (logFilePath);
+         handler = new FileHandler (logFilePath, true);
          handler.setLevel(LOG_LEVEL);
          handler.setFormatter(new HtmlFormatter(logTitle));
       }
       catch (IOException e)
       {
          throw new IllegalStateException ("Error setting log handler", e);
-      }  
+      }
       logger.addHandler(handler);
       LIST_HANDLER.forEach((h) -> logger.addHandler(h));
    }

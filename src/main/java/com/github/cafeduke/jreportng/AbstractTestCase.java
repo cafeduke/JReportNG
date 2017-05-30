@@ -61,7 +61,7 @@ public abstract class AbstractTestCase
       String className = ReportProperties.getDisplayName(testClass);
       
       LoggerFactory.injectLogger(testClass);
-      logger = LoggerFactory.getJReportLogger(testClass);      
+      logger = LoggerFactory.getJReportLogger(testClass);
       logger.info ("Started executing class " + className);      
    }
    
@@ -73,7 +73,6 @@ public abstract class AbstractTestCase
    {
       Class<?> testClass = getClass ();         
       String className = ReportProperties.getDisplayName(testClass);
-      
       logger.info ("Finished executing class " + className);
    }
 }

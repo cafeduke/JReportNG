@@ -49,9 +49,21 @@ public class JReportLogUtil
    
    static
    {
-      TestListener.log("Started initializing report resources");
       handleTestRunStart();
-      TestListener.log("Finished initializing report resources");
+   }
+
+   /**
+    * Initialize Reporting
+    */
+   public static void handleTestRunStart()
+   {      
+      startTime = LocalDateTime.now();
+      System.setProperty("org.uncommons.reportng.stylesheet", PATH_TO_CUSTOM_REPORTNG_CSS);
+      
+      if (new File (DIR_REPORT_LOG_HOME, "index.html").exists())
+         return;
+      
+      setupJReportResources ();
    }
 
    /**
@@ -86,6 +98,40 @@ public class JReportLogUtil
       }
    }
    
+   /**
+    * Complete reporting.
+    * Add pages with details that are known at the end of test execution.
+    */
+   public static void handleTestRunCompletion ()
+   {
+      try
+      {
+         endTime = LocalDateTime.now();
+         setupOverviewHtml ();
+      }
+      catch (Exception e)
+      {
+         throw new IllegalStateException ("Error completing report", e);
+      }
+   }
+
+   /**
+    * Add results from the {@code suite} to the total test result.
+    * 
+    * @param suite Suites that completed run.
+    */
+   public static void handleTestSuitesCompletion (ISuite suite)
+   {
+      Map<String,ISuiteResult> mapStringResult = suite.getResults();      
+      for (String suiteName : mapStringResult.keySet())
+      {
+         ITestContext context = mapStringResult.get(suiteName).getTestContext();
+         testRunPass += context.getPassedTests().size();
+         testRunFail += context.getFailedTests().size();
+         testRunSkip += context.getSkippedTests().size();
+      }
+   }
+
    /**
     * Write the index file for all the logs.
     * 
@@ -232,20 +278,6 @@ public class JReportLogUtil
    }
    
    /**
-    * Initialize Reporting
-    */
-   public static void handleTestRunStart()
-   {      
-      startTime = LocalDateTime.now();
-      System.setProperty("org.uncommons.reportng.stylesheet", PATH_TO_CUSTOM_REPORTNG_CSS);
-      
-      if (new File (DIR_REPORT_LOG_HOME, "index.html").exists())
-         return;
-      
-      setupJReportResources ();
-   }
-
-   /**
     * Setup maven target directory DIR_REPORT_HOME with resources.
     */
    private static void setupJReportResources ()
@@ -276,40 +308,6 @@ public class JReportLogUtil
          throw new IllegalStateException ("Error setting up report", e);
       }
    }
-   
-   /**
-    * Complete reporting.
-    * Add pages with details that are known at the end of test execution.
-    */
-   public static void handleTestRunCompletion ()
-   {
-      try
-      {
-         endTime = LocalDateTime.now();
-         setupOverviewHtml ();
-      }
-      catch (Exception e)
-      {
-         throw new IllegalStateException ("Error completing report", e);
-      }
-   }
-   
-   /**
-    * Add results from the {@code suite} to the total test result.
-    * 
-    * @param suite Suites that completed run.
-    */
-   public static void handleTestSuitesCompletion (ISuite suite)
-   {
-      Map<String,ISuiteResult> mapStringResult = suite.getResults();      
-      for (String suiteName : mapStringResult.keySet())
-      {
-         ITestContext context = mapStringResult.get(suiteName).getTestContext();
-         testRunPass += context.getPassedTests().size();
-         testRunFail += context.getFailedTests().size();
-         testRunSkip += context.getSkippedTests().size();
-      }
-   }    
    
    /**
     * Setup the overview.html
