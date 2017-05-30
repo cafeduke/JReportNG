@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!doctype html>
+<html>
+<head>
+   <meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
+   <link rel='stylesheet' type='text/css' href='css/log-testclass.css' />
+</head>
+<body>
+<h1>BasicTestFailure</h1>
+<hr>
+<div class='logContent'>
+<table class='tableLog'>
+<tr class='logRowHeading'><th>Date</th><th>Verbosity</th><th>Class</th><th>Method</th><th>ThreadId</th></tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.401 IST</td><td>INFO</td><td>com.github.cafeduke.jreportng.AbstractTestCase</td><td>beginTestClass</td><td>1</td></tr>
+<tr name='Thread-1'><td colspan='5' >Started executing class learntestng.BasicTestFailure</td></tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.401 IST</td><td>INFO</td><td>learntestng.BasicTestFailure</td><td>beginTestClass</td><td>1</td></tr>
+<tr name='Thread-1'><td colspan='5' >[AbstractTestCase] Before Class passed</td></tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.503 IST</td><td>INFO</td><td>learntestng.TestUtil</td><td>sleepAndLog</td><td>1</td></tr>
+<tr name='Thread-1'><td colspan='5' >BeforeClass</td></tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.504 IST</td><td>INFO</td><td>learntestng.BasicTestFailure</td><td>setup</td><td>1</td></tr>
+<tr name='Thread-1'><td colspan='5' >[BasicTestFailure] Before Class passed</td></tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.523 IST</td><td>INFO</td><td>learntestng.BasicTestFailure</td><td>testFails</td><td>1</td></tr>
+<tr name='Thread-1' class='logRowResult'><td colspan='5' >Started executing test learntestng.BasicTestFailure-testFails</td></tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.561 IST</td><td class='logColumnSevere'>SEVERE</td><td>learntestng.BasicTestFailure</td><td>testFails</td><td>1</td></tr>
+<tr name='Thread-1' class='logRowFailure'><td colspan='5' >Test learntestng.BasicTestFailure-testFails failed</td></tr>
+<tr name='Thread-1'>
+<td colspan='6'>
+<table class='tableStacktrace'>
+<tr class='traceOddRow'><td><b>StackTrace</b></td></tr>
+<tr><td>java.lang.AssertionError: expected [true] but found [false]</td></tr>
+<tr class='traceOddRow'><td>java.lang.AssertionError: expected [true] but found [false]</td></tr>
+<tr class='traceEvenRow'><td>	at org.testng.Assert.fail(Assert.java:93)</td></tr>
+<tr class='traceOddRow'><td>	at org.testng.Assert.failNotEquals(Assert.java:512)</td></tr>
+<tr class='traceEvenRow'><td>	at org.testng.Assert.assertTrue(Assert.java:41)</td></tr>
+<tr class='traceOddRow'><td>	at org.testng.Assert.assertTrue(Assert.java:51)</td></tr>
+<tr class='traceEvenRow'><td>	at com.maga.learntestng.BasicTestFailure.testFails(BasicTestFailure.java:24)</td></tr>
+<tr class='traceOddRow'><td>	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</td></tr>
+<tr class='traceEvenRow'><td>	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</td></tr>
+<tr class='traceOddRow'><td>	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</td></tr>
+<tr class='traceEvenRow'><td>	at java.lang.reflect.Method.invoke(Method.java:498)</td></tr>
+<tr class='traceOddRow'><td>	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)</td></tr>
+<tr class='traceEvenRow'><td>	at org.testng.internal.InvokeMethodRunnable.runOne(InvokeMethodRunnable.java:54)</td></tr>
+<tr class='traceOddRow'><td>	at org.testng.internal.InvokeMethodRunnable.run(InvokeMethodRunnable.java:44)</td></tr>
+<tr class='traceEvenRow'><td>	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)</td></tr>
+<tr class='traceOddRow'><td>	at java.util.concurrent.FutureTask.run(FutureTask.java:266)</td></tr>
+<tr class='traceEvenRow'><td>	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)</td></tr>
+<tr class='traceOddRow'><td>	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)</td></tr>
+<tr class='traceEvenRow'><td>	at java.lang.Thread.run(Thread.java:748)</td></tr>
+</table>
+</td>
+</tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.569 IST</td><td>INFO</td><td>learntestng.BasicTestFailure</td><td>testWorks</td><td>1</td></tr>
+<tr name='Thread-1' class='logRowResult'><td colspan='5' >Started executing test learntestng.BasicTestFailure-testWorks</td></tr>
+<tr name='Thread-14' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.872 IST</td><td>INFO</td><td>learntestng.TestUtil</td><td>sleepAndLog</td><td>14</td></tr>
+<tr name='Thread-14'><td colspan='5' >testA</td></tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.874 IST</td><td>INFO</td><td>learntestng.BasicTestFailure</td><td>testWorks</td><td>1</td></tr>
+<tr name='Thread-1' class='logRowSucccess'><td colspan='5' >Test learntestng.BasicTestFailure-testWorks passed</td></tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.877 IST</td><td class='logColumnWarning'>WARNING</td><td>learntestng.BasicTestFailure</td><td>testDependsOnFailure01</td><td>1</td></tr>
+<tr name='Thread-1' class='logRowWarning'><td colspan='5' >Test learntestng.BasicTestFailure-testDependsOnFailure01 skipped</td></tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.878 IST</td><td class='logColumnWarning'>WARNING</td><td>learntestng.BasicTestFailure</td><td>testDependsOnFailure02</td><td>1</td></tr>
+<tr name='Thread-1' class='logRowWarning'><td colspan='5' >Test learntestng.BasicTestFailure-testDependsOnFailure02 skipped</td></tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.980 IST</td><td>INFO</td><td>learntestng.TestUtil</td><td>sleepAndLog</td><td>1</td></tr>
+<tr name='Thread-1'><td colspan='5' >AfterClass</td></tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.981 IST</td><td>INFO</td><td>learntestng.BasicTestFailure</td><td>clean</td><td>1</td></tr>
+<tr name='Thread-1'><td colspan='5' >[BasicTestFailure] After Class passed</td></tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.982 IST</td><td>INFO</td><td>com.github.cafeduke.jreportng.AbstractTestCase</td><td>finishTestClass</td><td>1</td></tr>
+<tr name='Thread-1'><td colspan='5' >Finished executing class learntestng.BasicTestFailure</td></tr>
+<tr name='Thread-1' class='logMetaData'><td class='noWrapColumn'>Tue, 30-May-2017 21:38:57.983 IST</td><td>INFO</td><td>learntestng.BasicTestFailure</td><td>finishTestClass</td><td>1</td></tr>
+<tr name='Thread-1'><td colspan='5' >[AbstractTestCase] After Class passed</td></tr>
+</table>
+</div>
+</body>
+</html>
