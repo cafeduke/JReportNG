@@ -6,7 +6,7 @@
 
    <groupId>com.github.cafeduke</groupId>
    <artifactId>jreportng</artifactId>
-   <version>1.2-SNAPSHOT</version>
+   <version>1.2</version>
    <packaging>jar</packaging>
 
    <name>JReportNG</name>
@@ -24,7 +24,7 @@
       <developer>
          <name>Raghunandan Seshadri</name>
          <email>raghubs81@gmail.com</email>
-         <organization>Maga</organization>
+         <organization>CafeDuke</organization>
          <organizationUrl>https://github.com/cafeduke</organizationUrl>
       </developer>
    </developers>
