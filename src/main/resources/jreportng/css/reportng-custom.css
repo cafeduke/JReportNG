@@ -5,17 +5,18 @@ html
 
 body
 {
-   font-family: Consolas,Arial;
-   line-height: 1.8em;   
+   font-family: Consolas, Arial;
+   line-height: 1.8em;
    margin: 1.8em 1em;
-   font-size: 1.1em;   
+   font-size: 1.1em;
 }
 
-a, a:link, a:visited
+a,
+a:link,
+a:visited
 {
    color: Black;
 }
-
 
 h1
 {
@@ -25,9 +26,9 @@ h1
    margin-bottom: 0.6667em;
 }
 
-h2                       
+h2
 {
-   display:none
+   display: none
 }
 
 .header
@@ -143,21 +144,21 @@ h2
    border-spacing: 0em;
 }
 
-#suites                  
+#suites
 {
-   line-height: 1.7em; 
-   border-spacing: 0.3em; 
+   line-height: 1.7em;
+   border-spacing: 0.3em;
    width: 100%;
 }
 
 /* The +/- toggle used in the navigation frame. */
-.toggle                  
+.toggle
 {
-   font-family: monospace; 
-   font-weight: bold; 
-   padding-left: 2px; 
-   padding-right: 5px; 
-   color: rgb(128,0,255);
+   font-family: monospace;
+   font-weight: bold;
+   padding-left: 2px;
+   padding-right: 5px;
+   color: rgb(128, 0, 255);
 }
 
 /* These classes are for information about an individual test result. */

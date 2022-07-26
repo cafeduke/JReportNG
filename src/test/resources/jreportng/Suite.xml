@@ -3,11 +3,11 @@
 <suite name="MySuite" parallel="false" preserve-order="true" time-out="5000">
 
   <test name="MyTest" preserve-order="true">
-    <classes>      
-      <class name="com.github.cafeduke.jreportng.InstanceLoggerTest"/>
-      <class name="com.github.cafeduke.jreportng.LoggerFactoryTest"/>
-      <class name="com.github.cafeduke.jreportng.StaticLoggerInjectionTest"/>      
-      <class name="com.github.cafeduke.jreportng.LogLevelTest"/>
+    <classes>
+      <class name="com.github.cafeduke.jreportng.InstanceBaseLoggerTest" />
+      <class name="com.github.cafeduke.jreportng.LoggerFactoryTest" />
+      <class name="com.github.cafeduke.jreportng.StaticLoggerInjectionTest" />
+      <class name="com.github.cafeduke.jreportng.LogLevelTest" />
     </classes>
   </test>
 
