@@ -1,265 +1,226 @@
-html
-{
-   font-size: 62.5%;
+html {
+  font-size: 62.5%;
 }
 
-body
-{
-   font-family: Consolas, Arial;
-   line-height: 1.8em;
-   margin: 1.8em 1em;
-   font-size: 1.1em;
+body {
+  font-family: Consolas, Arial;
+  line-height: 1.8em;
+  margin: 1.8em 1em;
+  font-size: 1.1em;
 }
 
-a,
-a:link,
-a:visited
-{
-   color: Black;
+a, a:link, a:visited {
+  color: Black;
 }
 
-h1
-{
-   font-family: Arial;
-   font-weight: bold;
-   font-size: 2.0em;
-   margin-bottom: 0.6667em;
+h1 {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 2.0em;
+  margin-bottom: 0.6667em;
 }
 
-h2
-{
-   display: none
+h2 {
+  display: none
 }
 
-.header
-{
-   font-size: 1.4em;
-   font-weight: bold;
-   text-align: left;
-   background-image: url('../images/headingBarBlue.jpg');
-   border-width: 1px;
-   border-color: rgb(37, 70, 124);
-   border-style: outset;
+.header {
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align: left;
+  background-image: url('../images/headingBarBlue.jpg');
+  border-width: 1px;
+  border-color: rgb(37, 70, 124);
+  border-style: outset;
 }
 
-.passed
-{
-   background-color: #44aa44;
-   background-image: url('../images/headingBarDarkGreen.jpg');
-   border-width: 1px;
-   border-color: rgb(0, 128, 0);
-   border-style: outset;
+.passed {
+  background-color: #44aa44;
+  background-image: url('../images/headingBarDarkGreen.jpg');
+  border-width: 1px;
+  border-color: rgb(0, 128, 0);
+  border-style: outset;
 }
 
-.skipped
-{
-   background-color: #ffaa00;
-   background-image: url('../images/headingBarDarkOrange.jpg');
-   border-width: 1px;
-   border-color: rgb(200, 100, 0);
-   border-style: outset;
+.skipped, .skippedConfig {
+  color: black;
+  background-color: #ffaa00;
+  background-image: url('../images/headingBarDarkOrange.jpg');
+  border-width: 1px;
+  border-color: rgb(200, 100, 0);
+  border-style: outset;
 }
 
-.failed
-{
-   background-color: #ff4444;
-   background-image: url('../images/headingBarDarkRed.jpg');
-   border-width: 1px;
-   border-color: rgb(128, 0, 0);
-   border-style: outset;
+.failed, .failedConfig {
+  color: black;
+  background-color: #ff4444;
+  background-image: url('../images/headingBarDarkRed.jpg');
+  border-width: 1px;
+  border-color: rgb(128, 0, 0);
+  border-style: outset;
 }
 
-.passRate
-{
-   font-weight: bold;
-   text-align: right;
-   background-image: url('../images/headingBarDarkGreen.jpg');
-
-   border-width: 1px;
-   border-color: rgb(0, 128, 0);
-   border-style: outset;
+.passRate {
+  font-weight: bold;
+  text-align: right;
+  background-image: url('../images/headingBarDarkGreen.jpg');
+  border-width: 1px;
+  border-color: rgb(0, 128, 0);
+  border-style: outset;
 }
 
-.totalLabel
-{
-   font-weight: bold;
-   background-image: url('../images/headingBarDarkGray.jpg')
+.totalLabel {
+  font-weight: bold;
+  background-image: url('../images/headingBarDarkGray.jpg')
 }
 
-.suite
-{
-   background-color: #999999;
-   font-weight: bold;
+.suite {
+  background-color: #999999;
+  font-weight: bold;
 }
 
-.test
-{
-   background-color: #eeeeee;
-   padding-left: 2em;
-   background-image: url('../images/headingBarLightGray.jpg');
+.test {
+  background-color: #eeeeee;
+  padding-left: 2em;
+  background-image: url('../images/headingBarLightGray.jpg');
 }
 
-.test .passed
-{
-   background-color: #88ee88;
-   background-image: url('../images/headingBarLightGreen.jpg');
+.test .passed {
+  background-color: #88ee88;
+  background-image: url('../images/headingBarLightGreen.jpg');
 }
 
-.test .skipped
-{
-   background-color: #ffff77;
-   background-image: url('../images/headingBarLightOrange.jpg');
+.test .skipped {
+  background-color: #ffff77;
+  background-image: url('../images/headingBarLightOrange.jpg');
 }
 
-.test .failed
-{
-   background-color: #ff8888;
-   background-image: url('../images/headingBarLightRed.jpg');
+.test .failed {
+  background-color: #ff8888;
+  background-image: url('../images/headingBarLightRed.jpg');
 }
 
-.test .passRate
-{
-   background-image: url('../images/headingBarLightGreen.jpg');
+.test .passRate {
+  background-image: url('../images/headingBarLightGreen.jpg');
 }
 
-.test .zero
-{
-   background-image: url('../images/headingBarLightGray.jpg')
+.test .zero {
+  background-image: url('../images/headingBarLightGray.jpg')
 }
 
-.group
-{
-   background-color: #cccccc;
-   color: #000000;
-   font-weight: bold;
-   background-image: url('../images/headingBarLightPurple.jpg')
+.group {
+  background-color: #cccccc;
+  color: #000000;
+  font-weight: bold;
+  background-image: url('../images/headingBarLightPurple.jpg')
 }
 
-.resultsTable
-{
-   border: 0;
-   width: 100%;
-   margin-top: 1.8em;
-   line-height: 1.7em;
-   border-spacing: 0em;
+.resultsTable {
+  border: 0;
+  width: 100%;
+  margin-top: 1.8em;
+  line-height: 1.7em;
+  border-spacing: 0em;
 }
 
-#suites
-{
-   line-height: 1.7em;
-   border-spacing: 0.3em;
-   width: 100%;
+#suites {
+  line-height: 1.7em;
+  border-spacing: 0.3em;
+  width: 100%;
 }
 
 /* The +/- toggle used in the navigation frame. */
-.toggle
-{
-   font-family: monospace;
-   font-weight: bold;
-   padding-left: 2px;
-   padding-right: 5px;
-   color: rgb(128, 0, 255);
+.toggle {
+  font-family: monospace;
+  font-weight: bold;
+  padding-left: 2px;
+  padding-right: 5px;
+  color: rgb(128, 0, 255);
 }
 
 /* These classes are for information about an individual test result. */
-
-.result
-{
-   font-size: 1.2em;
-   vertical-align: middle;
+.result {
+  font-size: 1.2em;
+  vertical-align: middle;
 }
 
-.dependency
-{
-   font-family: "Courier New";
-   font-weight: bold;
+.dependency {
+  font-family: "Courier New";
+  font-weight: bold;
 }
 
-.arguments
-{
-   font-family: "Courier New";
-   font-weight: bold;
+.arguments {
+  font-family: "Courier New";
+  font-weight: bold;
 }
 
-.testOutput
-{
-   font-family: "Courier New";
-   color: #666666;
+.testOutput {
+  font-family: "Courier New";
+  color: #666666;
 }
 
-.stackTrace
-{
-   font-size: 1em;
-   font-family: "Courier New";
-   line-height: 1.2em;
-   margin-left: 2em;
-   display: none;
+.stackTrace {
+  font-size: 1em;
+  font-family: "Courier New";
+  line-height: 1.2em;
+  margin-left: 2em;
+  display: none;
 }
 
-.overviewTable
-{
-   width: 100%;
-   margin-top: 1.8em;
-   line-height: 1.7em;
-   border-spacing: 0.3em;
+.overviewTable {
+  width: 100%;
+  margin-top: 1.8em;
+  line-height: 1.7em;
+  border-spacing: 0.3em;
 }
 
-.overviewTable tr
-{
-   height: 2em;
+.overviewTable tr {
+  height: 2em;
 }
 
 /* Main Index Selectors */
-
-.titleBody
-{
-   margin: 0em;
-   padding: 0em;
-   font-size: 62.5%
+.titleBody {
+  margin: 0em;
+  padding: 0em;
+  font-size: 62.5%
 }
 
-.titleHeading
-{
-   font-family: Tahoma;
-   font-size: 1.2em;
-   font-weight: bold;
-   color: white;
-   margin-bottom: 0.5em;
+.titleHeading {
+  font-family: Tahoma;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.5em;
 }
 
-.titleTable
-{
-   background-image: url('../images/headerBG.jpg');
-   background-color: rgb(179, 204, 228);
-   width: 100%;
-   height: 3em;
-   margin: 0em;
-   border: 0em;
-   padding: 0.5em 1em;
-   white-space: nowrap;
+.titleTable {
+  background-image: url('../images/headerBG.jpg');
+  background-color: rgb(179, 204, 228);
+  width: 100%;
+  height: 3em;
+  margin: 0em;
+  border: 0em;
+  padding: 0.5em 1em;
+  white-space: nowrap;
 }
 
-.columnSpan
-{
-   width: 100%;
+.columnSpan {
+  width: 100%;
 }
 
-.liner
-{
-   background-color: rgb(179, 204, 228);
-   height: 5px;
+.liner {
+  background-color: rgb(179, 204, 228);
+  height: 5px;
 }
 
-.titleTable a
-{
-   color: White;
-   text-decoration: none;
-   font-size: 12px;
-   font-family: Arial, Tahoma;
-   padding: 0px 5px;
+.titleTable a {
+  color: White;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: Arial, Tahoma;
+  padding: 0px 5px;
 }
 
-.titleTable a:hover
-{
-   text-decoration: underline;
+.titleTable a:hover {
+  text-decoration: underline;
 }
