@@ -11,7 +11,7 @@
 
    <name>JReportNG</name>
    <description>A utility to generate HTML log structured like Javadocs for each TestNG test class</description>
-   <url>https://github.com/cafeduke/jreportng</url>
+   <url>https://github.com/cafeduke/JReportNG</url>
 
    <licenses>
       <license>
@@ -30,9 +30,9 @@
    </developers>
 
    <scm>
-      <connection>scm:git:git://github.com/cafeduke/jreportng.git</connection>
-      <developerConnection>scm:git:ssh://github.com:cafeduke/jreportng.git</developerConnection>
-      <url>https://github.com/cafeduke/jreportng/tree/master</url>
+      <connection>scm:git:git://github.com/cafeduke/JReportNG.git</connection>
+      <developerConnection>scm:git:ssh://github.com:cafeduke/JReportNG.git</developerConnection>
+      <url>https://github.com/cafeduke/JReportNG/tree/master</url>
    </scm>
 
    <distributionManagement>
